@@ -1,0 +1,2 @@
+rootProject.name = "PagingNetworkAND03"
+include ':app'
