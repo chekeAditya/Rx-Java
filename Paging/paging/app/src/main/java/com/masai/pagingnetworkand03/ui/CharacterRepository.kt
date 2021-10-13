@@ -11,7 +11,7 @@ class CharacterRepository {
             config = PagingConfig(
                 pageSize = 20,
 //                maxSize = (MAX_SIZE_UNBOUND) 70 //it will drop(delete) after 70 page's done
-//            prefetchDistance =  // it will tell how much data will be needed for advanced
+//            prefetchDistance =  // it will tell how much data will be needed for advanced it should be above or equal to it's formula
             ),
             pagingSourceFactory = { CharacterPagingSource() }
         ).liveData
