@@ -1,6 +1,7 @@
 package com.example.rxjavaoperator;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
          * it will create the data
          * just is the operator which will be called depend on the size of the Observable
          */
-        textView = findViewById(R.id.tvData);
+//        textView = findViewById(R.id.tvData);
 
         /*
         //For Integer Response
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
          */
 
 
-        /*
+/*
         //For ArrayList of Response
         Observable<Task> taskObservable = Observable.fromIterable(getTaskList()).filter(new Predicate<Task>() {
             @Override
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     }
          */
 
-
+/*
         //For Repeat time
         Integer[] arr = {1, 2, 3, 4, 5, 6};
         Observable<Integer> repeatTime = Observable.range(2, 5)
@@ -182,9 +183,11 @@ public class MainActivity extends AppCompatActivity {
         repeatTime.subscribe(integerObserver);
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+ */
     }
 }
