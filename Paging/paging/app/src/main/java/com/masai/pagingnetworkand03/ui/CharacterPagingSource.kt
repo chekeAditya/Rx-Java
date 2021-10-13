@@ -11,11 +11,14 @@ class CharacterPagingSource : PagingSource<Int,CharacterDTO>() {
     private  val apiService = NetworkHelper.getApiService()
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CharacterDTO> {
-        val pageNumber = params.key ?:1;
-        val responseDTO : ResponseDTO = apiService.getCharactersByPage(pageNumber)
-        val characterList:List<CharacterDTO> = responseDTO.results
+
 
         return try {
+            //to catch the exception
+            val pageNumber = params.key ?:1;
+            val responseDTO : ResponseDTO = apiService.getCharactersByPage(pageNumber)
+            val characterList:List<CharacterDTO> = responseDTO.results
+
             LoadResult.Page(
                 data = characterList,
                 prevKey = null,
