@@ -11,6 +11,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Predicate;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -19,6 +20,18 @@ public class LiveSessionActivity extends AppCompatActivity {
 
     private TextView textView;
     private Disposable disposable;
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
+
+    //onSubsribe -> compositeDisposable.add(d)
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+//        disposable.clear(); //it means you stop observer ( if we go to the onPause it will automatically stop listening
+//        disposable.dispose(); //it means you can't observe
+    }
+
+
 
 /*
     @Override
@@ -94,4 +107,128 @@ public class LiveSessionActivity extends AppCompatActivity {
         }
     }
 */
+
+//    mapTaskObservable
+    /*
+      Observable<Task> mapTaskObservable = Observable.create(new ObservableOnSubscribe<Task>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<Task> emitter) throws Throwable {
+                Task task = new Task(1, "Don project", false);
+                if (!emitter.isDisposed()) {
+                    emitter.onNext(task);
+                }
+            }
+        }).map(new Function<Task, Task>() {
+            @Override
+            public Task apply(Task task) throws Throwable {
+                task.setEstimatedTime("16:00 pm");
+                return task;
+            }
+        });
+
+        Observer<Task> taskObserver = new Observer<Task>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull Task task) {
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        mapTaskObservable.subscribe(taskObserver);
+     */
+
+
+//    flatMap
+    /*
+    MovieResponseDTO movieResponseDTO = new MovieResponseDTO(1, getMovieList()); // getting from API
+
+        Observable<Movie> movieObservable = Observable.
+                just(movieResponseDTO)
+                .flatMap(new Function<MovieResponseDTO, Observable<Movie>>() {
+                    @Override
+                    public Observable<Movie> apply(MovieResponseDTO movieResponseDTO) throws Throwable {
+                        List<Movie> movieList = movieResponseDTO.getMovieList();
+                        return Observable.fromIterable(movieList).subscribeOn(Schedulers.io());
+                    }
+                }).filter(new Predicate<Movie>() {
+                    @Override
+                    public boolean test(Movie movie) throws Throwable {
+                        return movie.getRating() > 7;
+                    }
+                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
+        Observer<Movie> movieObserver = new Observer<Movie>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull Movie movie) {
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        movieObservable.subscribe(movieObserver);
+     */
+
+
+//    intervalObservable
+    /*
+    Observable<Task> intervalObservable = Observable.interval(3, TimeUnit.SECONDS)
+                .flatMap(new Function<Long, ObservableSource<Task>>() {
+                    @Override
+                    public ObservableSource<Task> apply(Long aLong) throws Throwable {
+                        return Observable.fromIterable(getTaskList());
+                    }
+                });
+
+        Observer<Task> intervalObserver = new Observer<Task>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull Task task) {
+                Log.d("Lloyd", task.getId() + "");
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+
+        intervalObservable.subscribe(intervalObserver);
+     */
 }
