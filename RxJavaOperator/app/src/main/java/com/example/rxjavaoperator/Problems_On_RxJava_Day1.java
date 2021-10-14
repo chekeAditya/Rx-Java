@@ -101,7 +101,7 @@ public class Problems_On_RxJava_Day1 extends AppCompatActivity {
 
     private void fromArrayButtonClicked() {
         mBtnFromArrayButton.setOnClickListener(view -> {
-            String[] name = {"Aditya", "Sudarshan", "Karan", "Pranjal"};
+            String[] name = {"Aditya", "Sudarshan", "Karan", "Prachi"};
             Observable<String> stringObservable = Observable.fromArray(name);
             Observer<String> stringObserver = new Observer<String>() {
 
@@ -174,5 +174,4 @@ public class Problems_On_RxJava_Day1 extends AppCompatActivity {
         }
         return studentDetailsList;
     }
-
 }
