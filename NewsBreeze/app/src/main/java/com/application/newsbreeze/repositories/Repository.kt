@@ -1,6 +1,6 @@
 package com.application.newsbreeze.repositories
 
-import com.application.newsbreeze.remote.APIClient
+import com.application.newsbreeze.remote.interfaces.APIClient
 import com.application.newsbreeze.remote.responses.Article
 import javax.inject.Inject
 

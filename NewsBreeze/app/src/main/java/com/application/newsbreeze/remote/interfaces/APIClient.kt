@@ -1,4 +1,4 @@
-package com.application.newsbreeze.remote
+package com.application.newsbreeze.remote.interfaces
 
 import com.application.newsbreeze.remote.responses.ResponseModell
 import retrofit2.http.GET

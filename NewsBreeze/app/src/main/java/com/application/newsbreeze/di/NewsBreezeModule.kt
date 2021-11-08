@@ -1,6 +1,6 @@
 package com.application.newsbreeze.di
 
-import com.application.newsbreeze.remote.APIClient
+import com.application.newsbreeze.remote.interfaces.APIClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +16,7 @@ object NewsBreezeModule {
     private const val BASE_URL = "https://newsapi.org/"
 
     @Provides
-    fun provideAPIService():APIClient{
+    fun provideAPIService(): APIClient {
         val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
