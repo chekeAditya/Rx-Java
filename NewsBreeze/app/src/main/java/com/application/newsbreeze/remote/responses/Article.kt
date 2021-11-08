@@ -3,6 +3,7 @@ package com.application.newsbreeze.remote.responses
 
 import com.google.gson.annotations.SerializedName
 
+
 data class Article(
     @SerializedName("author")
     val author: String,
