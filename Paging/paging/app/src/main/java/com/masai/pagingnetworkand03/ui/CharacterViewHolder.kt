@@ -19,3 +19,14 @@ class CharacterViewHolder(private val view: View) : RecyclerView.ViewHolder(view
         }
     }
 }
+
+/*
+  fun onBindSizeResponse(sizeModel: SizeModel) {
+            itemLayoutBinding.size = sizeModel
+        }
+
+        fun onBindCrust(crustModel: CrustModel) {
+            itemLayoutBinding.addItemClicked = onBottomSheetClicked
+            itemLayoutBinding.crust = crustModel
+        }
+ */

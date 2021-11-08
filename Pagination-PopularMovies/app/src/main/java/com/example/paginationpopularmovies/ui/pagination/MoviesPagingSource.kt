@@ -21,5 +21,4 @@ class MoviesPagingSource @Inject constructor(private val networkHelper: NetworkH
         val moviesResponseModel: MoviesResponseModel = apiService.getMoviesResponse(pageNumber)
     }
 
-
 }
