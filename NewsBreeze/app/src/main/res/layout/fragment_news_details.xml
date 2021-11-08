@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.NewsDetailsFragment">
@@ -10,9 +10,58 @@
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/ivImagePreview"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:scaleType="centerCrop"
+            android:layout_height="300dp" />
 
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivImagePreview"
+            android:layout_marginStart="10dp"
+            android:text="Author:- "
+            android:layout_marginTop="@dimen/sp_20"
+            android:textColor="@color/black"/>
 
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sp_20"
+            android:layout_below="@+id/tvAuthor"
+            android:layout_marginStart="10dp"
+            android:text="Title"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sp_20"
+            android:layout_below="@+id/tvTitle"
+            android:layout_marginStart="10dp"
+            android:text="Description"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sp_20"
+            android:layout_below="@+id/tvDescription"
+            android:layout_marginStart="10dp"
+            android:text="Content"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tvPublishedAt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sp_20"
+            android:layout_below="@+id/tvContent"
+            android:layout_marginStart="10dp"
+            android:text="Published At"
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 </layout>

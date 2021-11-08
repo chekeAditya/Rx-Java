@@ -36,18 +36,21 @@ class NewsDetailsFragment : Fragment(R.layout.fragment_news_details) {
         parentFragmentManager.setFragmentResultListener(
             "article", this, FragmentResultListener() { s: String, bundle: Bundle ->
                 val author = bundle.getString("author")
+                newsDetailsBinding.tvAuthor.text = "Author :- $author"
                 val content = bundle.getString("content")
+                newsDetailsBinding.tvContent.text = "Content :- $content"
                 val description = bundle.getString("description")
+                newsDetailsBinding.tvDescription.text = "Description :- $description"
                 val publishedAt = bundle.getString("publishedAt")
-                val source = bundle.getString("source")
+                newsDetailsBinding.tvPublishedAt.text = "Published At :- $publishedAt"
                 val title = bundle.getString("title")
-                val url = bundle.getString("url")
+                newsDetailsBinding.tvTitle.text = "Title :- $title"
                 val urlToImage = bundle.getString("urlToImage")
-                Glide.with(newsDetailsBinding.ivImagePreview).load(urlToImage).into(newsDetailsBinding.ivImagePreview)
+                Glide.with(newsDetailsBinding.ivImagePreview).load(urlToImage)
+                    .into(newsDetailsBinding.ivImagePreview)
             }
         )
     }
-
 }
 /*
 /*
