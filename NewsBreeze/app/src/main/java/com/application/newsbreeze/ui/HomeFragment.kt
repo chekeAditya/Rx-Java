@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -52,8 +53,19 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnCardClicked {
     }
 
     override fun onCardClicked(article: Article) {
-        Navigation.findNavController(requireView())
-            .navigate(R.id.action_homeFragment_to_newsDetailsFragment)
+        val bundle = Bundle()
+        bundle.putString("author",article.author)
+        bundle.putString("content",article.content)
+        bundle.putString("description",article.description)
+        bundle.putString("publishedAt",article.publishedAt)
+        bundle.putString("source", article.source.toString())
+        bundle.putString("title",article.title)
+        bundle.putString("url",article.url)
+        bundle.putString("urlToImage",article.urlToImage)
+        parentFragmentManager.setFragmentResult("article",bundle)
+
+        //navigating
+        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_newsDetailsFragment)
     }
 
 }

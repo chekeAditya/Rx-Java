@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.NewsDetailsFragment">
+<layout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="news details fragment" />
+        tools:context=".ui.NewsDetailsFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/ivImagePreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+
+
+    </RelativeLayout>
+</layout>
+
+<!--
+ @SerializedName("author")
+    val author: String,
+    @SerializedName("content")
+    val content: String,
+    @SerializedName("description")
+    val description: String,
+    @SerializedName("publishedAt")
+    val publishedAt: String,
+    @SerializedName("source")
+    val source: Source,
+    @SerializedName("title")
+    val title: String,
+    @SerializedName("url")
+    val url: String,
+    @SerializedName("urlToImage")
+    val urlToImage: String
+-->
